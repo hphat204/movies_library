@@ -13,7 +13,6 @@ export default function NavBar() {
   const { setIsSearching } = useSearch();
   const dispatch = useMovieDispatch();
   const [search, setSearch] = useState("");
-
   useEffect(() => {
     if (search.length === 0) {
       setIsSearching(false);
@@ -28,7 +27,7 @@ export default function NavBar() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 300);
+    }, 500);
   }
   function removeAndAddActiveLink(e) {
     const navLink = document.querySelectorAll(".nav-link");

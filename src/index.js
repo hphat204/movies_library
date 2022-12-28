@@ -1,17 +1,18 @@
 import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/errorPage";
-import WatchedMovies from "./components/WatchedMovies/WatchedMovies";
 import AllMovies from "./components/MoviesContainer/AllMovies";
-import SavedMovies from "./components/SavedMovies.jsx/SavedMovies";
-import LikedMovies from "./components/LikedMovies.jsx/LikedMovies";
 import LoadingProvider from "./components/Context/LoadingContext";
 import MoviesProvider from "./components/Context/MoviesContext";
 import MovieIdProvider from "./components/Context/MovieIdContext";
+
+const SavedMovies = lazy(() => import("./components/SavedMovies/SavedMovies"));
+const LikedMovies = lazy(() => import("./components/LikedMovies/LikedMovies"));
+const WatchedMovies = lazy(() => import("./components/WatchedMovies/WatchedMovies"));
 
 const router = createBrowserRouter([
   {
