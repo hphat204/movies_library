@@ -70,7 +70,18 @@ const reducer = (state, action) => {
         searchMovies: [
           ...state[movieList].filter(
             (mov) =>
-              mov.name.includes(action.payload.search) || mov.year.toString().includes(String(action.payload.search))
+              mov.name.includes(action.payload.search.trim()) ||
+              mov.year.includes(action.payload.search.trim()) ||
+              mov.category.join("").toLowerCase().includes(action.payload.search.trim())
+          ),
+        ],
+      };
+    case "SET_MOVIE_RATING":
+      return {
+        ...state,
+        movies: [
+          ...state.movies.map((mov) =>
+            mov.id === action.payload.id ? { ...mov, rating: action.payload.rating } : mov
           ),
         ],
       };

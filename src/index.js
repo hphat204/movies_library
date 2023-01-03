@@ -9,6 +9,7 @@ import AllMovies from "./components/MoviesContainer/AllMovies";
 import LoadingProvider from "./components/Context/LoadingContext";
 import MoviesProvider from "./components/Context/MoviesContext";
 import MovieIdProvider from "./components/Context/MovieIdContext";
+import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
 
 const SavedMovies = lazy(() => import("./components/SavedMovies/SavedMovies"));
 const LikedMovies = lazy(() => import("./components/LikedMovies/LikedMovies"));
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
         element: <LikedMovies />,
       },
     ],
+  },
+  {
+    path: "/movie/:id",
+    errorElement: <ErrorPage />,
+    element: <MovieDetailsPage />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

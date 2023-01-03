@@ -76,7 +76,7 @@ export default function NavBar() {
             className="form-control shadow-none bg-dark text-white"
             onChange={(e) => setSearch(e.target.value)}
             type="search"
-            placeholder="Tìm kiếm phim theo tên hoặc năm"
+            placeholder="Tìm phim theo tên, năm và thể loại"
             aria-label="Search"
           />
         </form>
