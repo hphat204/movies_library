@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/errorPage";
 import AllMovies from "./components/MoviesContainer/AllMovies";

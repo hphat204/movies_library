@@ -10,6 +10,7 @@ import "moment/locale/vi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faPen, faTrash, faEllipsisH, faEyeSlash, faClock, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Rating from "../Rating/Rating";
 
 moment.locale("vi");
 export default function Movies({ movie }) {
@@ -44,8 +45,9 @@ export default function Movies({ movie }) {
     <div className="card border border-0">
       <FormModal />
       <Link to={`/movie/${movie.id}`} style={{ textDecoration: "none", color: "black" }}>
-        <div className="overflow-hidden">
-          <img src={movie.img || noImg} alt={movie.name} className="rounded w-100 img-fluid card-img" />
+        <div className="overflow-hidden bg-primary position-relative">
+          <img src={movie.img || noImg} alt={movie.name} className="rounded img-fluid card-img" />
+          <Rating movieId={movie.id} findMovieById={movie} movieCard={true} />
         </div>
 
         <div className="card-img-top">
@@ -85,7 +87,7 @@ export default function Movies({ movie }) {
             <ul className="dropdown-menu">
               <li>
                 <button className="dropdown-item" onClick={() => handleAdd("watchedMovies")}>
-                  <FontAwesomeIcon icon={faEyeSlash} S /> Đã xem
+                  <FontAwesomeIcon icon={faEyeSlash} /> Đã xem
                 </button>
               </li>
               <li>

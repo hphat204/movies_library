@@ -1,20 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useMovies } from "../../components/Context/MoviesContext";
 import { Link, useParams, ScrollRestoration } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTicketSimple } from "@fortawesome/free-solid-svg-icons";
-import { useMovieDispatch } from "../../components/Context/MoviesContext";
+import Rating from "../../components/Rating/Rating";
 export default function MovieDetailsPage() {
   const { id } = useParams();
   const { movies } = useMovies();
-  const dispatch = useMovieDispatch();
   const findMovieById = movies.find((mov) => mov.id === id);
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
-
-  useEffect(() => {
-    setRating(findMovieById.rating || 0);
-  }, [findMovieById.rating]);
 
   const randomMoviesWithSameCategory = useMemo(() => {
     const moviesArr = [];
@@ -31,19 +22,6 @@ export default function MovieDetailsPage() {
     return moviesArr;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [findMovieById.id]);
-  const ratingComment = useMemo(() => {
-    const checkRating = hoverRating || rating;
-    if (checkRating === 0) return;
-    if (checkRating === 1) return "phim tệ";
-    if (checkRating === 2) return "phim chưa cuốn hút";
-    if (checkRating === 3) return "phim nên xem";
-    if (checkRating === 4) return "phim đáng xem";
-    if (checkRating === 5) return "phim hay";
-  }, [rating, hoverRating]);
-
-  const addRating = (ratingVal) => {
-    dispatch({ type: "SET_MOVIE_RATING", payload: { id: findMovieById.id, rating: ratingVal } });
-  };
 
   return (
     <div
@@ -57,29 +35,7 @@ export default function MovieDetailsPage() {
       <div className="d-flex justify-content-around ">
         <div className="d-flex flex-column w-25 ">
           <img src={findMovieById.img} alt={findMovieById.name} className="w-75 mx-auto object-fit-cover rounded" />
-          <div className="d-flex mx-1 justify-content-center  align-items-center mt-3">
-            {[...new Array(5)].map((ticket, index) => {
-              const ratingVal = index + 1;
-              return (
-                <label key={index} role="button" className="mx-1">
-                  <input
-                    type="radio"
-                    value={ratingVal}
-                    onClick={() => addRating(ratingVal)}
-                    style={{ display: "none" }}
-                  />
-                  <FontAwesomeIcon
-                    icon={faTicketSimple}
-                    color={ratingVal <= (hoverRating || rating) ? "#c53126" : "#e7e7e7"}
-                    fontSize={25}
-                    onMouseEnter={() => setHoverRating(ratingVal)}
-                    onMouseLeave={() => setHoverRating(0)}
-                  />
-                </label>
-              );
-            })}
-          </div>
-          <p className=" text-capitalize fw-bold text-danger text-center">{ratingComment}</p>
+          <Rating movieId={id} findMovieById={findMovieById} movieCard={false} />
         </div>
       </div>
       <div className="w-50 mx-auto">
