@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useMovies } from "../../components/Context/MoviesContext";
+import { useMovies } from "../../Context/MoviesContext";
 import { Link, useParams, ScrollRestoration } from "react-router-dom";
 import Rating from "../../components/Rating/Rating";
 export default function MovieDetailsPage() {
@@ -16,7 +16,7 @@ export default function MovieDetailsPage() {
     if (moviesWithSameCategory.length <= 3) return moviesWithSameCategory;
     for (let i = 0; i < 3; i++) {
       let randomNum = Math.floor(Math.random() * moviesWithSameCategory.length);
-      moviesArr.push(moviesWithSameCategory[randomNum]);
+      moviesArr.push(moviesWithSameCategory[randomNum] || moviesWithSameCategory[moviesWithSameCategory.length - 1]);
       moviesWithSameCategory.splice(randomNum, 1);
     }
     return moviesArr;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useMovieDispatch } from "../../components/Context/MoviesContext";
+import { useMovieDispatch } from "../../Context/MoviesContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicketSimple } from "@fortawesome/free-solid-svg-icons";
 

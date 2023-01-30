@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useMovies } from "../Context/MoviesContext";
-import { useMovieDispatch } from "../Context/MoviesContext";
-import { useMovieId } from "../Context/MovieIdContext";
+import { useMovies } from "../../Context/MoviesContext";
+import { useMovieDispatch } from "../../Context/MoviesContext";
+import { useMovieId } from "../../Context/MovieIdContext";
 import { useNavigate } from "react-router-dom";
 
 export default function FormModal() {

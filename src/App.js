@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
-import { useLoading } from "./components/Context/LoadingContext";
+import { useLoading } from "./Context/LoadingContext";
 
 function App() {
   const { loading } = useLoading();

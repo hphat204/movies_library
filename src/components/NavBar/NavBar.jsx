@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useHref } from "react-router-dom";
 import FormModal from "../FormModal/FormModal";
-import { useLoading } from "../Context/LoadingContext";
-import { useMovieId } from "../Context/MovieIdContext";
-import { useMovieDispatch } from "../Context/MoviesContext";
-import { useSearch } from "../Context/MoviesContext";
+import { useLoading } from "../../Context/LoadingContext";
+import { useMovieId } from "../../Context/MovieIdContext";
+import { useMovieDispatch } from "../../Context/MoviesContext";
+import { useSearch } from "../../Context/MoviesContext";
 
 export default function NavBar() {
   const { setLoading } = useLoading();

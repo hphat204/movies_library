@@ -1,5 +1,5 @@
 import React from "react";
-import { useMovies } from "../Context/MoviesContext";
+import { useMovies } from "../../Context/MoviesContext";
 import Movies from "../MoviesContainer/Movies";
 
 export default function SearchComponent() {

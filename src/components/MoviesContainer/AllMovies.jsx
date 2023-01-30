@@ -1,7 +1,7 @@
 import React from "react";
 import Movies from "./Movies";
-import { useMovies } from "../Context/MoviesContext";
-import { useSearch } from "../Context/MoviesContext";
+import { useMovies } from "../../Context/MoviesContext";
+import { useSearch } from "../../Context/MoviesContext";
 import SearchComponent from "../SearchComponent/SearchComponent";
 
 export default function AllMovies() {

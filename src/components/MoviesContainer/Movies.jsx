@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import FormModal from "../FormModal/FormModal";
-import { useMovieId } from "../Context/MovieIdContext";
-import { useMovieDispatch } from "../Context/MoviesContext";
+import { useMovieId } from "../../Context/MovieIdContext";
+import { useMovieDispatch } from "../../Context/MoviesContext";
 import { useHref } from "react-router-dom";
-import { useMovies } from "../Context/MoviesContext";
+import { useMovies } from "../../Context/MoviesContext";
 import noImg from "../../image/no-image.png";
 import moment from "moment/moment";
 import "moment/locale/vi";

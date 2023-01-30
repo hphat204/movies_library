@@ -7,9 +7,9 @@ import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/errorPage";
 import AllMovies from "./components/MoviesContainer/AllMovies";
-import LoadingProvider from "./components/Context/LoadingContext";
-import MoviesProvider from "./components/Context/MoviesContext";
-import MovieIdProvider from "./components/Context/MovieIdContext";
+import LoadingProvider from "./Context/LoadingContext";
+import MoviesProvider from "./Context/MoviesContext";
+import MovieIdProvider from "./Context/MovieIdContext";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
 
 const SavedMovies = lazy(() => import("./components/SavedMovies/SavedMovies"));
